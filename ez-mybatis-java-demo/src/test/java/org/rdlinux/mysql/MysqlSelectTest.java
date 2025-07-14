@@ -403,7 +403,9 @@ public class MysqlSelectTest extends MysqlBaseTest {
     public void normalCountTest() {
         SqlSession sqlSession = MysqlBaseTest.sqlSessionFactory.openSession();
         EzQuery<User> query = EzQuery.builder(User.class).from(EntityTable.of(User.class))
-                .select().addField("name").done()
+                .select()
+                .withHint("index a")
+                .addField("name").done()
                 //.where().addColumnCondition("name", Operator.gt, 1).done()
                 .build();
         int i = sqlSession.getMapper(EzMapper.class).queryCount(query);

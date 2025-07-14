@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring2-project</artifactId>
-        <version>0.9.7.RS</version>
+        <version>0.9.8.RS</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ez-mybatis-java-demo</artifactId>
