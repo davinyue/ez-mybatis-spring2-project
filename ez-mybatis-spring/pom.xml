@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring2-project</artifactId>
-        <version>0.9.8.plus357</version>
+        <version>0.9.8.plus.357</version>
     </parent>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>org.rdlinux</groupId>
             <artifactId>ez-mybatis-core</artifactId>
-            <version>${project.version}</version>
+            <version>0.9.8.plus357</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
