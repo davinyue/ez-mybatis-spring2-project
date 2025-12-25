@@ -29,30 +29,11 @@
         <developerConnection>https://github.com/davinyue</developerConnection>
         <url>https://github.com/davinyue/ez-mybatis</url>
     </scm>
-    <profiles>
-        <profile>
-            <id>build</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-starter</module>
-                <module>ez-mybatis-to-plus-spring-boot-starter</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>publish</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <modules>
-                <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-starter</module>
-                <module>ez-mybatis-to-plus-spring-boot-starter</module>
-            </modules>
-        </profile>
-    </profiles>
+    <modules>
+        <module>ez-mybatis-spring</module>
+        <module>ez-mybatis-spring-boot-starter</module>
+        <module>ez-mybatis-to-plus-spring-boot-starter</module>
+    </modules>
     <build>
         <plugins>
             <plugin>
