@@ -6,7 +6,7 @@
     <groupId>org.rdlinux</groupId>
     <artifactId>ez-mybatis-spring2-project</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.8.RS</version>
+    <version>0.9.9.RS</version>
     <name>ez-mybatis</name>
     <url>https://github.com/davinyue/ez-mybatis</url>
     <description>ez-mybatis</description>
@@ -37,9 +37,8 @@
             </activation>
             <modules>
                 <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-start</module>
-                <module>ez-mybatis-to-plus-spring-boot-start</module>
-                <module>ez-mybatis-java-demo</module>
+                <module>ez-mybatis-spring-boot-starter</module>
+                <module>ez-mybatis-to-plus-spring-boot-starter</module>
             </modules>
         </profile>
         <profile>
@@ -49,8 +48,8 @@
             </activation>
             <modules>
                 <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-start</module>
-                <module>ez-mybatis-to-plus-spring-boot-start</module>
+                <module>ez-mybatis-spring-boot-starter</module>
+                <module>ez-mybatis-to-plus-spring-boot-starter</module>
             </modules>
         </profile>
     </profiles>

@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring2-project</artifactId>
-        <version>0.9.8.RS</version>
+        <version>0.9.9.RS</version>
     </parent>
+
+    <artifactId>ez-mybatis-to-plus-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>ez-mybatis-spring-boot-start</artifactId>
-    <name>ez-mybatis-spring-boot-start</name>
+    <name>ez-mybatis-to-plus-spring-boot-starter</name>
     <url>https://github.com/davinyue/ez-mybatis</url>
-    <description>ez-mybatis</description>
+    <description>ez-mybatis-to-plus-spring-boot-start</description>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -20,7 +19,6 @@
             <distribution>actable</distribution>
         </license>
     </licenses>
-    <!-- 开发者信息 -->
     <developers>
         <developer>
             <name>DavinYue</name>
@@ -40,47 +38,28 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-        <mybatis.version>3.5.16</mybatis.version>
-        <spring-boot.version>2.7.18</spring-boot.version>
+        <mybatis.plus.version>3.5.12</mybatis.plus.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.rdlinux</groupId>
-            <artifactId>ez-mybatis-spring</artifactId>
+            <artifactId>ez-mybatis-spring-boot-starter</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.3.2</version>
-            <!-- jdk1.8最高支持版本 -->
-            <exclusions>
-                <exclusion>
-                    <artifactId>mybatis-spring</artifactId>
-                    <groupId>org.mybatis</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                    <groupId>org.springframework.boot</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>mybatis</artifactId>
-                    <groupId>org.mybatis</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.rdlinux</groupId>
+            <artifactId>ez-mybatis-to-plus</artifactId>
+            <version>${project.version}</version>
         </dependency>
-        <!-- 自动生成配置项元数据, ide可以提示配置项 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${spring-boot.version}</version>
-            <!-- 表示依赖不会传递 -->
-            <optional>true</optional>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
         <plugins>
-            <!-- 指定编译器版本 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -89,13 +68,11 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-            <!-- lombok编译插件 -->
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
                 <version>1.18.4.0</version>
             </plugin>
-            <!--打包源码 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -132,7 +109,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- GPG签名 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
