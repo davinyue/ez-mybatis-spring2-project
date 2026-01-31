@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring2-project</artifactId>
-        <version>1.0.0.RS</version>
+        <version>1.0.1.RS</version>
     </parent>
 
     <artifactId>ez-mybatis-to-plus-spring-boot-starter</artifactId>
@@ -90,12 +90,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <!-- <version>3.0.1</version> -->
-                <version>2.9</version>
+                <version>3.12.0</version>
                 <configuration>
-                    <aggregate>true</aggregate>
-                    <defaultAuthor>DavinYue</defaultAuthor>
-                    <defaultVersion>${project.version}</defaultVersion>
+                    <doclint>none</doclint>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
@@ -103,9 +101,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
