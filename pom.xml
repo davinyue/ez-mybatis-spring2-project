@@ -6,7 +6,7 @@
     <groupId>org.rdlinux</groupId>
     <artifactId>ez-mybatis-spring2-project</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.8.plus.357</version>
+    <version>1.0.2.plus357</version>
     <name>ez-mybatis</name>
     <url>https://github.com/davinyue/ez-mybatis</url>
     <description>ez-mybatis</description>
@@ -29,31 +29,11 @@
         <developerConnection>https://github.com/davinyue</developerConnection>
         <url>https://github.com/davinyue/ez-mybatis</url>
     </scm>
-    <profiles>
-        <profile>
-            <id>build</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-start</module>
-                <module>ez-mybatis-to-plus-spring-boot-start</module>
-                <module>ez-mybatis-java-demo</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>publish</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <modules>
-                <module>ez-mybatis-spring</module>
-                <module>ez-mybatis-spring-boot-start</module>
-                <module>ez-mybatis-to-plus-spring-boot-start</module>
-            </modules>
-        </profile>
-    </profiles>
+    <modules>
+        <module>ez-mybatis-spring</module>
+        <module>ez-mybatis-spring-boot-starter</module>
+        <module>ez-mybatis-to-plus-spring-boot-starter</module>
+    </modules>
     <build>
         <plugins>
             <plugin>
@@ -80,12 +60,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <!-- <version>3.0.1</version> -->
-                <version>2.9</version>
+                <version>3.12.0</version>
                 <configuration>
-                    <aggregate>true</aggregate>
-                    <defaultAuthor>DavinYue</defaultAuthor>
-                    <defaultVersion>${project.version}</defaultVersion>
+                    <doclint>none</doclint>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
@@ -93,22 +71,26 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>3.2.8</version>
                 <executions>
                     <execution>
+                        <id>sign-artifacts</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
