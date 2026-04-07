@@ -5,7 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.rdlinux.ezmybatis.EzMybatisConfig;
-import org.rdlinux.ezmybatis.constant.TableNamePattern;
+import org.rdlinux.ezmybatis.constant.NameCasePolicy;
 import org.rdlinux.ezmybatis.core.EzMybatisContent;
 import org.rdlinux.ezmybatis.core.dao.EzDao;
 import org.rdlinux.ezmybatis.core.dao.JdbcInsertDao;
@@ -85,12 +85,16 @@ public class EzMybatisAutoConfiguration implements ApplicationContextAware {
         return configuration -> {
             EzMybatisConfig ezMybatisConfig = new EzMybatisConfig(configuration);
             ezMybatisConfig.setEscapeKeyword(this.ezMybatisProperties.isEscapeKeyword());
-            if (this.ezMybatisProperties.getMapRetKeyPattern() != null) {
-                ezMybatisConfig.setMapRetKeyPattern(this.ezMybatisProperties.getMapRetKeyPattern());
+            if (this.ezMybatisProperties.getMapRetKeyCasePolicy() != null) {
+                ezMybatisConfig.setMapRetKeyCasePolicy(this.ezMybatisProperties.getMapRetKeyCasePolicy());
             }
-            ezMybatisConfig.setTableNamePattern(TableNamePattern.ORIGINAL);
-            if (this.ezMybatisProperties.getTableNamePattern() != null) {
-                ezMybatisConfig.setTableNamePattern(this.ezMybatisProperties.getTableNamePattern());
+            ezMybatisConfig.setTableNameCasePolicy(NameCasePolicy.ORIGINAL);
+            if (this.ezMybatisProperties.getTableNameCasePolicy() != null) {
+                ezMybatisConfig.setTableNameCasePolicy(this.ezMybatisProperties.getTableNameCasePolicy());
+            }
+            ezMybatisConfig.setColumnNameCasePolicy(NameCasePolicy.ORIGINAL);
+            if (this.ezMybatisProperties.getColumnNameCasePolicy() != null) {
+                ezMybatisConfig.setColumnNameCasePolicy(this.ezMybatisProperties.getColumnNameCasePolicy());
             }
             if (this.ezMybatisProperties.getEnableOracleOffsetFetchPage() != null) {
                 ezMybatisConfig.setEnableOracleOffsetFetchPage(this.ezMybatisProperties.getEnableOracleOffsetFetchPage());
@@ -106,8 +110,8 @@ public class EzMybatisAutoConfiguration implements ApplicationContextAware {
         private BeanFactory beanFactory;
 
         @Override
-        public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
-                                            BeanDefinitionRegistry registry) {
+        public void registerBeanDefinitions(@NonNull AnnotationMetadata importingClassMetadata,
+                                            @NonNull BeanDefinitionRegistry registry) {
             List<String> packages = new LinkedList<>(AutoConfigurationPackages.get(this.beanFactory));
             packages.add(EzMapper.class.getPackage().getName());
             if (EzMybatisAutoConfiguration.log.isDebugEnabled()) {
