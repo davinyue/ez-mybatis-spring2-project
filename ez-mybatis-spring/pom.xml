@@ -12,9 +12,6 @@
     <artifactId>ez-mybatis-spring</artifactId>
     <name>ez-mybatis-spring</name>
     <description>ez-mybatis</description>
-    <properties>
-        <spring.version>5.3.39</spring.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.rdlinux</groupId>
@@ -24,19 +21,16 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>2.1.2</version>
             <!-- jdk1.8最高支持版本 -->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
