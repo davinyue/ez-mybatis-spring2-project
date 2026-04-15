@@ -41,5 +41,7 @@ mvnw
 mvnw.cmd
 
 hs_err_pid*
-/.codex
-/.vscode/settings.json
+
+# Local development
+.codex
+.vscode/
