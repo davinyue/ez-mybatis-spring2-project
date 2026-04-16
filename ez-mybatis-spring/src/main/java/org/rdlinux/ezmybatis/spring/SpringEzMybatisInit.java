@@ -17,11 +17,6 @@ public class SpringEzMybatisInit {
     public static void init(EzMybatisConfig ezMybatisConfig, ApplicationContext applicationContext) {
         Assert.notNull(ezMybatisConfig, "ezMybatisConfig can not be null");
         Assert.notNull(applicationContext, "applicationContext can not be null");
-        //初始化实体信息构造器
-        applicationContext.getBeansOfType(EntityInfoBuilder.class).values()
-                .forEach(b -> {
-                    EzMybatisContent.getDbDialectProvider(ezMybatisConfig.getConfiguration()).setEntityInfoBuilder(b);
-                });
         //初始化实体信息缓存器
         try {
             EzMybatisEntityInfoCache entityInfoCache = applicationContext.getBean(EzMybatisEntityInfoCache.class);
@@ -35,6 +30,11 @@ public class SpringEzMybatisInit {
         }
         //初始化上下文
         EzMybatisContent.init(ezMybatisConfig);
+        //初始化实体信息构造器
+        applicationContext.getBeansOfType(EntityInfoBuilder.class).values()
+                .forEach(b ->
+                        EzMybatisContent.getDbDialectProvider(ezMybatisConfig.getConfiguration())
+                                .setEntityInfoBuilder(b));
         //添加事件处理器
         Map<String, EzMybatisInsertListener> insertListenerMap = applicationContext.getBeansOfType(
                 EzMybatisInsertListener.class);
