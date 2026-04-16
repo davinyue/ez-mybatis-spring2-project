@@ -6,7 +6,6 @@ import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.rdlinux.ezmybatis.EzMybatisConfig;
 import org.rdlinux.ezmybatis.constant.NameCasePolicy;
-import org.rdlinux.ezmybatis.core.EzMybatisContent;
 import org.rdlinux.ezmybatis.core.dao.EzDao;
 import org.rdlinux.ezmybatis.core.dao.JdbcInsertDao;
 import org.rdlinux.ezmybatis.core.dao.JdbcUpdateDao;
@@ -99,10 +98,10 @@ public class EzMybatisAutoConfiguration implements ApplicationContextAware {
             if (this.ezMybatisProperties.getEnableOracleOffsetFetchPage() != null) {
                 ezMybatisConfig.setEnableOracleOffsetFetchPage(this.ezMybatisProperties.getEnableOracleOffsetFetchPage());
             }
-            SpringEzMybatisInit.init(ezMybatisConfig, EzMybatisAutoConfiguration.this.applicationContext);
             if (this.ezMybatisProperties.getDbType() != null) {
-                EzMybatisContent.setDbType(configuration, this.ezMybatisProperties.getDbType());
+                ezMybatisConfig.setDbType(this.ezMybatisProperties.getDbType());
             }
+            SpringEzMybatisInit.init(ezMybatisConfig, EzMybatisAutoConfiguration.this.applicationContext);
         };
     }
 
